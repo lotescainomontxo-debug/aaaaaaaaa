@@ -65,14 +65,9 @@ body{
   overflow:hidden;
 }
 
-/* PAGES */
-.pages{
-  /* eliminamos el slider horizontal */
-}
-
 /* PAGE */
 .page{
-  display:none; /* todas ocultas por defecto */
+  display:none; /* ocultas por defecto */
   flex-direction: column;
   padding-right:10px;
 }
@@ -142,7 +137,7 @@ body{
 <div class="pages" id="pages">
 
 <!-- 1ª AVA -->
-<div class="page">
+<div class="page" style="display:flex;">
   <div class="subject">
     <div class="subject-title">Configuración de instalacións de frío e climatización</div>
     <div class="grade suf">Suficiente - 5</div>
@@ -251,7 +246,7 @@ function goPage(n){
   });
 }
 
-// Al cargar, mostrar solo la 1ª AVA
+// Al cargar, mostrar la 1ª AVA
 window.onload = function(){
   goPage(0);
 }
