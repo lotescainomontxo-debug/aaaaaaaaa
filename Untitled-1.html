@@ -67,13 +67,13 @@ body{
 
 /* PAGES */
 .pages{
-  display:flex;
-  width:400%;
-  transition:.35s;
+  /* eliminamos el slider horizontal */
 }
 
+/* PAGE */
 .page{
-  width:25%;
+  display:none; /* todas ocultas por defecto */
+  flex-direction: column;
   padding-right:10px;
 }
 
@@ -113,9 +113,6 @@ body{
 
 /* RESPONSIVE */
 @media(max-width:600px){
-  .pages{
-    flex-wrap: nowrap;
-  }
   .page{
     width:100%;
     padding-right:0;
@@ -223,12 +220,12 @@ body{
 </div>
 
 <!-- 3ª AVA VACÍA -->
-<div class="page" style="display:flex; justify-content:center; align-items:center; height:300px;">
+<div class="page" style="flex-direction:column; justify-content:center; align-items:center; height:300px;">
   <div>No hay notas disponibles</div>
 </div>
 
 <!-- FINAL VACÍA -->
-<div class="page" style="display:flex; justify-content:center; align-items:center; height:300px;">
+<div class="page" style="flex-direction:column; justify-content:center; align-items:center; height:300px;">
   <div>No hay notas disponibles</div>
 </div>
 
@@ -238,12 +235,25 @@ body{
 
 <script>
 function goPage(n){
-  document.getElementById("pages").style.transform="translateX(-"+(n*25)+"%)";
+  // Ocultar todas las páginas
+  let pages = document.querySelectorAll(".page");
+  pages.forEach((p,i)=>{
+    p.style.display = "none";
+  });
+  // Mostrar solo la página seleccionada
+  pages[n].style.display = "flex";
+
+  // Actualizar pestañas
   let tabs=document.querySelectorAll(".tabs span");
   tabs.forEach((t,i)=>{
     t.classList.remove("active");
-    if(i==n)t.classList.add("active");
+    if(i==n) t.classList.add("active");
   });
+}
+
+// Al cargar, mostrar solo la 1ª AVA
+window.onload = function(){
+  goPage(0);
 }
 </script>
 
