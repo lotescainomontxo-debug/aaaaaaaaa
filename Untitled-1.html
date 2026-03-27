@@ -7,6 +7,7 @@
 <title>Cualificacións</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <style>
 *{
@@ -113,12 +114,110 @@ body{
     padding-right:0;
   }
 }
+
+/* MENÚ LATERAL (DRAWER) */
+.drawer{
+  position:fixed;
+  top:0;
+  left:-280px;
+  width:280px;
+  height:100%;
+  background:#fff;
+  box-shadow:2px 0 8px rgba(0,0,0,.3);
+  transition:.3s;
+  z-index:1000;
+}
+.drawer.open{ left:0; }
+
+.drawer-header{
+  background:#0b78b9;
+  color:#fff;
+  padding:20px;
+}
+.drawer-header .avatar{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#fff;
+  margin-bottom:10px;
+}
+.drawer-header h3{
+  font-size:16px;
+  font-weight:500;
+}
+.drawer-header p{
+  font-size:13px;
+  opacity:.9;
+}
+.drawer ul{
+  list-style:none;
+  padding:10px;
+}
+.drawer li{
+  display:flex;
+  align-items:center;
+  padding:12px;
+  font-size:15px;
+  cursor:pointer;
+}
+.drawer li i{
+  margin-right:20px;
+  color:#9e9e9e;
+}
+
+/* OVERLAY */
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.3);
+  display:none;
+  z-index:999;
+}
+.overlay.show{ display:block; }
+
+/* Botón del menú */
+.menu-btn{
+  font-size:26px;
+  cursor:pointer;
+  color:white;
+  margin-bottom:10px;
+}
 </style>
 </head>
 
 <body>
 
+<!-- MENÚ DESPLEGABLE (DRAWER) -->
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <div class="avatar"></div>
+    <h3>Daniel Gonzalez Feijoo</h3>
+    <p>1º Instalacións frigoríficas e climatización A</p>
+  </div>
+  <ul>
+    <li><i class="material-icons">description</i>Cualificacións</li>
+    <li><i class="material-icons">event_busy</i>Faltas</li>
+    <li><i class="material-icons">notifications</i>Avisos e incidencias</li>
+    <li><i class="material-icons">schedule</i>Horarios</li>
+    <li><i class="material-icons">school</i>O centro</li>
+    <li><i class="material-icons">calendar_today</i>Calendario</li>
+    <li><i class="material-icons">message</i>Mensaxería</li>
+    <li><i class="material-icons">people</i>Titorías</li>
+    <li><i class="material-icons">directions_bus</i>Transporte</li>
+    <li><i class="material-icons">edit_note</i>Escolarización</li>
+    <li><i class="material-icons">report</i>Denunciar contido</li>
+  </ul>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
 <div class="header">
+
+<!-- BOTÓN MENÚ -->
+<span class="material-icons menu-btn" onclick="openDrawer()">menu</span>
 
 <h1>Cualificacións</h1>
 <p>1º Instalacións frigoríficas e climatización A - Daniel Gonzalez Feijoo</p>
@@ -249,6 +348,20 @@ function goPage(n){
 // Al cargar, mostrar la 1ª AVA
 window.onload = function(){
   goPage(0);
+}
+
+// FUNCIONALIDAD DEL DRAWER
+const drawer = document.getElementById('drawer');
+const overlay = document.getElementById('overlay');
+
+function openDrawer(){
+  drawer.classList.add('open');
+  overlay.classList.add('show');
+}
+
+overlay.onclick = function(){
+  drawer.classList.remove('open');
+  overlay.classList.remove('show');
 }
 </script>
 
