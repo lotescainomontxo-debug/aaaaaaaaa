@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cualificacións</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Roboto,Arial;
+}
+
+body{
+  background:#f5f5f5;
+}
+
+/* HEADER */
+.header{
+  background:#0b78b9;
+  color:white;
+  padding:15px;
+}
+
+.header h1{
+  font-size:20px;
+}
+
+.header p{
+  font-size:13px;
+  opacity:.9;
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  justify-content:space-around;
+  margin-top:10px;
+  flex-wrap: wrap;
+}
+
+.tabs span{
+  font-size:14px;
+  opacity:.6;
+  cursor:pointer;
+  margin:2px 0;
+}
+
+.tabs .active{
+  opacity:1;
+  font-weight:500;
+}
+
+/* CONTENT */
+.container{
+  background:white;
+  margin:10px;
+  border-radius:8px;
+  padding:15px;
+  overflow:hidden;
+}
+
+/* PAGES */
+.pages{
+  display:flex;
+  width:400%;
+  transition:.35s;
+}
+
+.page{
+  width:25%;
+  padding-right:10px;
+}
+
+/* SUBJECT */
+.subject{
+  margin-bottom:20px;
+}
+
+.subject-title{
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.grade{
+  text-align:right;
+  font-size:13px;
+  margin-bottom:6px;
+}
+
+.suf{color:#d1b000;}
+.ben{color:#d1b000;}
+.not{color:#0b78b9;}
+
+.progress{
+  height:6px;
+  background:#e0e0e0;
+  border-radius:4px;
+  overflow:hidden;
+}
+
+.fill{
+  height:100%;
+}
+
+.yellow{background:#d1b000;}
+.blue{background:#0b78b9;}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .pages{
+    flex-wrap: nowrap;
+  }
+  .page{
+    width:100%;
+    padding-right:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>Cualificacións</h1>
+<p>1º Instalacións frigoríficas e climatización A - Daniel Gonzalez Feijoo</p>
+
+<div class="tabs">
+  <span class="active" onclick="goPage(0)">1ª Ava.</span>
+  <span onclick="goPage(1)">2ª Ava.</span>
+  <span onclick="goPage(2)">3ª Ava.</span>
+  <span onclick="goPage(3)">Final</span>
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="pages" id="pages">
+
+<!-- 1ª AVA -->
+<div class="page">
+  <div class="subject">
+    <div class="subject-title">Configuración de instalacións de frío e climatización</div>
+    <div class="grade suf">Suficiente - 5</div>
+    <div class="progress"><div class="fill yellow" style="width:50%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Inglés profesional</div>
+    <div class="grade not">Notable - 8</div>
+    <div class="progress"><div class="fill blue" style="width:80%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Instalacións eléctricas e automatismos</div>
+    <div class="grade ben">Ben - 6</div>
+    <div class="progress"><div class="fill yellow" style="width:60%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Itinerario persoal para a empregabilidade</div>
+    <div class="grade not">Notable - 7</div>
+    <div class="progress"><div class="fill blue" style="width:70%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Máquinas e equipamentos térmicos</div>
+    <div class="grade ben">Ben - 6</div>
+    <div class="progress"><div class="fill yellow" style="width:60%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Sostibilidade aplicada ao sistema produtivo</div>
+    <div class="grade not">Notable - 8</div>
+    <div class="progress"><div class="fill blue" style="width:80%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Técnicas de montaxe de instalacións</div>
+    <div class="grade not">Notable - 7</div>
+    <div class="progress"><div class="fill blue" style="width:70%"></div></div>
+  </div>
+</div>
+
+<!-- 2ª AVA -->
+<div class="page">
+  <div class="subject">
+    <div class="subject-title">Configuración de instalacións de frío e climatización</div>
+    <div class="grade suf">Suficiente - 5</div>
+    <div class="progress"><div class="fill yellow" style="width:50%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Inglés profesional</div>
+    <div class="grade not">Sobresaliente - 9</div>
+    <div class="progress"><div class="fill blue" style="width:90%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Instalacións eléctricas e automatismos</div>
+    <div class="grade ben">Ben - 6</div>
+    <div class="progress"><div class="fill yellow" style="width:60%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Itinerario persoal para a empregabilidade</div>
+    <div class="grade not">Notable - 8</div>
+    <div class="progress"><div class="fill blue" style="width:80%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Máquinas e equipamentos térmicos</div>
+    <div class="grade not">Notable - 8</div>
+    <div class="progress"><div class="fill blue" style="width:80%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Sostibilidade aplicada ao sistema produtivo</div>
+    <div class="grade not">Notable - 7</div>
+    <div class="progress"><div class="fill blue" style="width:70%"></div></div>
+  </div>
+  <div class="subject">
+    <div class="subject-title">Técnicas de montaxe de instalacións</div>
+    <div class="grade not">Notable - 7</div>
+    <div class="progress"><div class="fill blue" style="width:70%"></div></div>
+  </div>
+</div>
+
+<!-- 3ª AVA VACÍA -->
+<div class="page" style="display:flex; justify-content:center; align-items:center; height:300px;">
+  <div>No hay notas disponibles</div>
+</div>
+
+<!-- FINAL VACÍA -->
+<div class="page" style="display:flex; justify-content:center; align-items:center; height:300px;">
+  <div>No hay notas disponibles</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function goPage(n){
+  document.getElementById("pages").style.transform="translateX(-"+(n*25)+"%)";
+  let tabs=document.querySelectorAll(".tabs span");
+  tabs.forEach((t,i)=>{
+    t.classList.remove("active");
+    if(i==n)t.classList.add("active");
+  });
+}
+</script>
+
+</body>
+</html>
